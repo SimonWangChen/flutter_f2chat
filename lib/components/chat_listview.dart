@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flukit/flukit.dart';
 import 'package:flutter_f2chat/components/chat_item.dart';
 import 'package:flutter_f2chat/components/chat_message.dart';
 

@@ -3,9 +3,12 @@ import 'package:flutter_f2chat/pages/me.dart';
 
 Widget scheduleAppBar(BuildContext context) {
   return AppBar(
-      title: Text(
-        "Schedule",
-        style: TextStyle(color: Colors.black),
+      title: GestureDetector(
+        child: Text("Schedule",
+          style: TextStyle(color: Colors.black),
+
+        ),
+        onTap: (){},
       ),
       backgroundColor: Colors.white,
       leading: Builder(builder: (context) {
@@ -19,6 +22,7 @@ Widget scheduleAppBar(BuildContext context) {
         );
       }),
       actions: <Widget>[
-        IconButton(icon: Icon(Icons.schedule, color: Colors.black), onPressed: () {})
+        IconButton(icon: Icon(Icons.add_circle_outline, color: Colors.black),
+            onPressed: () {})
       ]);
 }

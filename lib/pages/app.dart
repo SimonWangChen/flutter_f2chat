@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_f2chat/components/chat_item.dart';
-import 'package:flutter_f2chat/components/chat_message.dart';
 import 'package:flutter_f2chat/pages/chat.dart';
-import 'package:flutter_f2chat/pages/chat_search.dart';
-import 'package:floating_search_bar/floating_search_bar.dart';
 import 'package:flutter_f2chat/pages/discover.dart';
-import 'package:flutter_f2chat/pages/me.dart';
 import 'package:flutter_f2chat/pages/moments.dart';
 import 'package:flutter_f2chat/pages/schedule.dart';
 import 'package:flutter_f2chat/components/chat_appbar.dart';
@@ -33,8 +28,8 @@ class _AppPageState extends State<AppPage> {
     ];
   }
 
-  _appbar(int index, BuildContext context){
-    switch (index){
+  _appbar(int index, BuildContext context) {
+    switch (index) {
       case 0:
         return scheduleAppBar(context);
         break;
@@ -55,7 +50,6 @@ class _AppPageState extends State<AppPage> {
     return Scaffold(
       appBar: _appbar(_selectedIndex, context),
       body: _pagelist[_selectedIndex],
-
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -82,4 +76,3 @@ class _AppPageState extends State<AppPage> {
     });
   }
 }
-

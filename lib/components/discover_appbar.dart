@@ -19,6 +19,6 @@ Widget discoverAppBar(BuildContext context) {
         );
       }),
       actions: <Widget>[
-        IconButton(icon: Icon(Icons.explore, color: Colors.black), onPressed: () {})
+        IconButton(icon: Icon(Icons.add, color: Colors.black), onPressed: () {})
       ]);
 }

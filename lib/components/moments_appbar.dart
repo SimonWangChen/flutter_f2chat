@@ -19,6 +19,6 @@ Widget momentsAppBar(BuildContext context) {
         );
       }),
       actions: <Widget>[
-        IconButton(icon: Icon(Icons.photo, color: Colors.black), onPressed: () {})
+        IconButton(icon: Icon(Icons.add_a_photo, color: Colors.black), onPressed: () {})
       ]);
 }

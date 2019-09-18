@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_f2chat/components/chat_item.dart';
 import 'package:flutter_f2chat/components/chat_message.dart';
 import 'package:flutter_f2chat/pages/chat_search.dart';
-import 'package:flutter_f2chat/pages/login.dart';
 import 'package:floating_search_bar/floating_search_bar.dart';
-import 'package:flutter_f2chat/pages/me.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -12,7 +10,6 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatState extends State<ChatPage> {
-  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
