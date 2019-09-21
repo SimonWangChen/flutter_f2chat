@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_f2chat/pages/chat.dart';
+import 'package:flutter_f2chat/components/activity_appbar.dart';
+import 'package:flutter_f2chat/pages/activity.dart';
+
+//import 'package:flutter_f2chat/pages/chat.dart';
 import 'package:flutter_f2chat/pages/discover.dart';
 import 'package:flutter_f2chat/pages/moments.dart';
 import 'package:flutter_f2chat/pages/schedule.dart';
@@ -22,8 +25,9 @@ class _AppPageState extends State<AppPage> {
     super.initState();
     _pagelist = [
       SchedulePage(),
-      ChatPage(),
-      DiscoverPage(),
+//      ChatPage(),
+      ActivityPage(),
+      MatePage(),
       MomentsPage(),
     ];
   }
@@ -34,7 +38,8 @@ class _AppPageState extends State<AppPage> {
         return scheduleAppBar(context);
         break;
       case 1:
-        return chatAppBar(context);
+//        return chatAppBar(context);
+        return activityAppBar(context);
         break;
       case 2:
         return discoverAppBar(context);
@@ -54,11 +59,13 @@ class _AppPageState extends State<AppPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.schedule), title: Text('Schedule')),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text('Chats')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.wb_sunny), title: Text('Activity')),
+//          BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text('Chats')),
           BottomNavigationBarItem(
               icon: Icon(Icons.explore), title: Text('Discover')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.language), title: Text('Moments')),
+//          BottomNavigationBarItem(
+//              icon: Icon(Icons.language), title: Text('Moments')),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTap,

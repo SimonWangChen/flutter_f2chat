@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_f2chat/components/schedule_data.dart';
-import 'package:date_format/date_format.dart';
+import 'package:flutter_f2chat/models/schedule.dart';
 import 'touch_callback.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //聊天信息项
 class ScheduleItem extends StatelessWidget {
-  final ScheduleData message;
+  final Schedule _schedule;
 
-  ScheduleItem(this.message);
+  ScheduleItem(this._schedule);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class ScheduleItem extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Text(
-                    formatDate(message.time, [HH, ':', nn]).toString(),
+                    _schedule.start_time,
                     style: TextStyle(fontSize: 14.0, color: Colors.black),
                   )
                 ],
@@ -52,7 +51,7 @@ class ScheduleItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    message.topic,
+                    _schedule.topic.toString(),
                     style: TextStyle(fontSize: 16.0, color: Color(0xFF353535)),
                     maxLines: 1,
                   ),
@@ -62,16 +61,18 @@ class ScheduleItem extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Text(
-                        "Host: ${message.host}",
+                        "Host: ${_schedule.host}",
                         style:
                             TextStyle(fontSize: 14.0, color: Color(0xFFa9a9a9)),
                         maxLines: 1,
                         //显示不完的文本用省略号来表示
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Padding(padding: const EdgeInsets.only(left: 10.0),),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                      ),
                       Text(
-                        "Guest: ${message.guest}",
+                        "Guest: ${_schedule.guest}",
                         style:
                             TextStyle(fontSize: 14.0, color: Color(0xFFa9a9a9)),
                         maxLines: 1,
@@ -84,9 +85,11 @@ class ScheduleItem extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(right: 15.0, top: 12.0),
-              child: Icon(FontAwesomeIcons.video, color: Colors.greenAccent,)
-            ),
+                margin: const EdgeInsets.only(right: 15.0, top: 12.0),
+                child: Icon(
+                  FontAwesomeIcons.video,
+                  color: Colors.greenAccent,
+                )),
           ],
         ),
       ),

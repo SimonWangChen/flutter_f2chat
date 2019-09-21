@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flukit/flukit.dart';
 import 'package:flutter_f2chat/api/proclassmates.dart';
+import 'package:flutter_f2chat/components/user_item.dart';
 
-import 'package:flutter_f2chat/components/schedule_item.dart';
-import 'package:flutter_f2chat/models/schedule.dart';
+import 'package:flutter_f2chat/models/users.dart';
 
-class SchedulePage extends StatefulWidget {
+class ActivityPage extends StatefulWidget {
   @override
-  _ScheduleState createState() => _ScheduleState();
+  _ActivityState createState() => _ActivityState();
 }
 
-class _ScheduleState extends State<SchedulePage> {
+class _ActivityState extends State<ActivityPage> {
   ScrollController _controller = new ScrollController();
 
   @override
@@ -22,16 +22,16 @@ class _ScheduleState extends State<SchedulePage> {
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
-        child: InfiniteListView<Schedule>(
-      onRetrieveData: (int page, List<Schedule> items, bool refresh) async {
-        var data = await ProClassmates(context).getSchedule();
+        child: InfiniteListView<User>(
+      onRetrieveData: (int page, List<User> items, bool refresh) async {
+        var data = await ProClassmates(context).getUser();
         //把请求到的新数据添加到items中
         items.addAll(data);
         return data.length > 0 && data.length % 20 == 0;
       },
       itemBuilder: (List list, int index, BuildContext ctx) {
         // 项目信息列表项
-        return ScheduleItem(list[index]);
+        return UserItem(list[index]);
       },
     ));
   }

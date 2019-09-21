@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "topic": "Daily Review",
+  "start_time": "2019-09-21T14:00:00",
+  "city": "Beijing",
+  "address": "中关村英孚",
+  "host": "Simon",
+  "photo": "http://0.0.0.0:8000/media/publicity/Daily_Review.jpg",
+  "level": "All",
+  "update_time": "2019-09-21T00:12:00"
+}

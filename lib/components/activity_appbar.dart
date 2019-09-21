@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_f2chat/pages/me.dart';
 
-Widget scheduleAppBar(BuildContext context) {
+Widget activityAppBar(BuildContext context) {
   return AppBar(
-      title: GestureDetector(
-        child: Text("Schedule",
-          style: TextStyle(color: Colors.black),
-
-        ),
-        onTap: (){},
+      title: Text(
+        "Activity",
+        style: TextStyle(color: Colors.black),
       ),
       backgroundColor: Colors.white,
       leading: Builder(builder: (context) {
@@ -22,7 +19,6 @@ Widget scheduleAppBar(BuildContext context) {
         );
       }),
       actions: <Widget>[
-        IconButton(icon: Icon(Icons.add, color: Colors.black),
-            onPressed: () {})
+        IconButton(icon: Icon(Icons.add, color: Colors.black), onPressed: () {})
       ]);
 }
