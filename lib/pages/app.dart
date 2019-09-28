@@ -4,12 +4,16 @@ import 'package:flutter_f2chat/pages/activity.dart';
 
 //import 'package:flutter_f2chat/pages/chat.dart';
 import 'package:flutter_f2chat/pages/discover.dart';
+import 'package:flutter_f2chat/pages/login.dart';
 import 'package:flutter_f2chat/pages/moments.dart';
 import 'package:flutter_f2chat/pages/schedule.dart';
-import 'package:flutter_f2chat/components/chat_appbar.dart';
+
+//import 'package:flutter_f2chat/components/chat_appbar.dart';
 import 'package:flutter_f2chat/components/schedule_appbar.dart';
 import 'package:flutter_f2chat/components/moments_appbar.dart';
 import 'package:flutter_f2chat/components/discover_appbar.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_f2chat/states/profile_change_notifier.dart';
 
 class AppPage extends StatefulWidget {
   @override
@@ -52,29 +56,34 @@ class _AppPageState extends State<AppPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _appbar(_selectedIndex, context),
-      body: _pagelist[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.schedule), title: Text('Schedule')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.wb_sunny), title: Text('Activity')),
+    UserModel userModel = Provider.of<UserModel>(context);
+    if (!userModel.isLogin) {
+      return Login();
+    } else {
+      return Scaffold(
+        appBar: _appbar(_selectedIndex, context),
+        body: _pagelist[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.schedule), title: Text('Schedule')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.wb_sunny), title: Text('Activity')),
 //          BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text('Chats')),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.explore), title: Text('Discover')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.explore), title: Text('Discover')),
 //          BottomNavigationBarItem(
 //              icon: Icon(Icons.language), title: Text('Moments')),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTap,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.black,
-      ),
-    );
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTap,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.black,
+        ),
+      );
+    }
   }
 
   void _onItemTap(int index) {

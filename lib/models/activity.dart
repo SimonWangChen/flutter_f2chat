@@ -9,6 +9,9 @@ class Activity {
   String host;
   String photo;
   String level;
+  num availableSeats;
+  String intro;
+  String material;
   String update_time;
 
   Activity.fromJson(Map<String, dynamic> json)
@@ -20,6 +23,9 @@ class Activity {
         host = json['host'],
         photo = json['photo'],
         level = json['level'],
+        availableSeats = json['availableSeats'],
+        intro = json['intro'],
+        material = json['material'],
         update_time = json['update_time'];
 
   Map<String, dynamic> toJson() => {
@@ -31,6 +37,9 @@ class Activity {
         'host': host,
         'photo': photo,
         'level': level,
+        'availableSeats': availableSeats,
+        'intro': intro,
+        'material': material,
         'update_time': update_time,
       };
 }
